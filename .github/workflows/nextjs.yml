@@ -7,7 +7,6 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main"]
-
   workflow_dispatch:
 
 permissions:
@@ -25,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -41,16 +40,16 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
+      
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -58,15 +57,15 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-
+      
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-
-      - name: Build & Export Next.js
-        run: |
-          ${{ steps.detect-package-manager.outputs.runner }} next build
-          ${{ steps.detect-package-manager.outputs.runner }} next export
-
+      
+      - name: Build Next.js (with static export)
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          NODE_ENV: production
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -82,4 +81,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
