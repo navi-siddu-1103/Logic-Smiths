@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 145 70% 70%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 145 70% 70%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 145 70% 70%;
+
+    --primary: 145 80% 45%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 145 30% 20%;
+    --secondary-foreground: 145 70% 80%;
+
+    --muted: 145 25% 15%;
+    --muted-foreground: 145 50% 60%;
+
+    --accent: 145 80% 30%;
+    --accent-foreground: 145 90% 80%;
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 145 30% 25%;
+    --input: 145 30% 25%;
+    --ring: 145 80% 50%;
+
+    /* Chart colors — all shades of green */
+    --chart-1: 145 80% 45%;
+    --chart-2: 145 70% 35%;
+    --chart-3: 145 60% 25%;
+    --chart-4: 145 50% 20%;
+    --chart-5: 145 40% 15%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 145 70% 70%;
+    --sidebar-primary: 145 80% 45%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 145 40% 15%;
+    --sidebar-accent-foreground: 145 80% 70%;
+    --sidebar-border: 145 40% 25%;
+    --sidebar-ring: 145 80% 50%;
+  }
+
+  .dark {
+    /* Dark mode = same (everything black + green only) */
+    --background: 0 0% 8%;
+    --foreground: 145 70% 70%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 145 70% 70%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 145 70% 70%;
+
+    --primary: 145 80% 45%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 145 30% 20%;
+    --secondary-foreground: 145 70% 80%;
+
+    --muted: 145 25% 15%;
+    --muted-foreground: 145 50% 60%;
+
+    --accent: 145 80% 30%;
+    --accent-foreground: 145 90% 80%;
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 145 30% 25%;
+    --input: 145 30% 25%;
+    --ring: 145 80% 50%;
+
+    --chart-1: 145 80% 45%;
+    --chart-2: 145 70% 35%;
+    --chart-3: 145 60% 25%;
+    --chart-4: 145 50% 20%;
+    --chart-5: 145 40% 15%;
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 145 70% 70%;
+    --sidebar-primary: 145 80% 45%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 145 40% 15%;
+    --sidebar-accent-foreground: 145 80% 70%;
+    --sidebar-border: 145 40% 25%;
+    --sidebar-ring: 145 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
